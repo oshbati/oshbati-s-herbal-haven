@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
-import { ShoppingCart, Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/oshbati-logo.png";
 
 const navAr = [
   { label: "الرئيسية", href: "#home" },
-  { label: "الفئات", href: "#categories" },
-  { label: "منتجاتنا", href: "#products" },
   { label: "من نحن", href: "#about" },
+  { label: "خلطاتنا", href: "#blends" },
+  { label: "أعشابنا", href: "#herbs" },
+  { label: "رؤيتنا", href: "#vision" },
   { label: "تواصل", href: "#contact" },
 ];
 const navEn = [
   { label: "Home", href: "#home" },
-  { label: "Categories", href: "#categories" },
-  { label: "Shop", href: "#products" },
   { label: "About", href: "#about" },
+  { label: "Our Blends", href: "#blends" },
+  { label: "Herbs", href: "#herbs" },
+  { label: "Vision", href: "#vision" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -72,11 +74,12 @@ export function Header({
             <Globe className="h-4 w-4" />
             <span className="text-xs font-semibold">{lang === "ar" ? "EN" : "AR"}</span>
           </Button>
-          <Button variant="ghost" size="icon" className="relative text-foreground/80 hover:text-primary">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-0.5 -end-0.5 h-4 w-4 rounded-full bg-accent text-[10px] font-bold text-accent-foreground grid place-items-center">
-              0
-            </span>
+          <Button
+            asChild
+            size="sm"
+            className="hidden md:inline-flex rounded-full bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
+            <a href="#contact">{lang === "ar" ? "تواصل معنا" : "Contact"}</a>
           </Button>
           <Button
             variant="ghost"

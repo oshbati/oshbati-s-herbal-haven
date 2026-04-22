@@ -4,20 +4,20 @@ import heroImg from "@/assets/hero-tea.jpg";
 
 export function Hero({ lang }: { lang: "ar" | "en" }) {
   const ar = {
-    eyebrow: "حكمة الطبيعة • صحة بلا مساومة",
+    eyebrow: "حكمة الموروث • دقة العلم",
     title: "عشبتي.. حكمة الطبيعة في كيس واحد",
-    sub: "خلطات طبيعية مدروسة لدعم توازنك الصحي، بمذاق أصيل وجودة مخبرية.",
-    cta: "تسوق الآن",
+    sub: "خلطات عشبية مدروسة، مستلهمة من المعرفة التراثية ومدعومة بالدراسات الحديثة، لدعم نمط حياة صحي بطريقة عملية وسهلة.",
+    cta: "اكتشف خلطاتنا",
     cta2: "تعرّف علينا",
-    badge: "100% طبيعي",
+    badge: "صحتك بالدنيا",
   };
   const en = {
-    eyebrow: "Nature's Wisdom • Uncompromised Health",
+    eyebrow: "Heritage Wisdom • Modern Science",
     title: "Oshbati — Nature's wisdom in a single bag",
-    sub: "Carefully crafted herbal blends to support your wellness balance, with authentic taste and lab-tested quality.",
-    cta: "Shop Now",
+    sub: "Thoughtful herbal blends inspired by traditional knowledge and supported by modern research, to nurture a healthy lifestyle simply and practically.",
+    cta: "Discover Our Blends",
     cta2: "About Us",
-    badge: "100% Natural",
+    badge: "Your health, your world",
   };
   const t = lang === "ar" ? ar : en;
 
@@ -58,7 +58,7 @@ export function Hero({ lang }: { lang: "ar" | "en" }) {
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 text-base font-semibold shadow-elegant group"
               asChild
             >
-              <a href="#products">
+              <a href="#blends">
                 {t.cta}
                 <ArrowLeft className="h-4 w-4 ms-1 group-hover:-translate-x-1 transition-smooth rtl:rotate-180" />
               </a>
@@ -73,13 +73,9 @@ export function Hero({ lang }: { lang: "ar" | "en" }) {
             </Button>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-foreground/70">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-accent" />
-              <span className="font-medium">{t.badge}</span>
-            </div>
-            <div className="h-4 w-px bg-border" />
-            <span>Lab Tested · Ready-to-use</span>
+          <div className="mt-12 flex flex-wrap items-center gap-3 text-sm text-foreground/70">
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            <span className="font-semibold text-primary">{t.badge}</span>
           </div>
         </div>
       </div>

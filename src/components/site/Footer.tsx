@@ -1,49 +1,45 @@
-import { Facebook, Instagram, Twitter, AlertTriangle } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/oshbati-logo.png";
 
 export function Footer({ lang }: { lang: "ar" | "en" }) {
   const ar = {
     tagline: "صحتك بالدنيا",
-    desc: "خلطات شاي طبيعية بحكمة الموروث ودقة العلم.",
-    nav: "روابط سريعة",
+    desc: "مشروع متخصص في تطوير خلطات عشبية طبيعية، تجمع بين حكمة الموروث ودقة العلم.",
+    nav: "روابط",
     navItems: [
-      { l: "الرئيسية", h: "#home" },
-      { l: "منتجاتنا", h: "#products" },
       { l: "من نحن", h: "#about" },
-      { l: "تواصل", h: "#contact" },
+      { l: "خلطاتنا", h: "#blends" },
+      { l: "أعشابنا", h: "#herbs" },
+      { l: "رؤيتنا", h: "#vision" },
     ],
     contact: "تواصل معنا",
-    disc: "إخلاء مسؤولية صحية",
-    discBody:
-      "منتجات عشبتي مكمّل غذائي طبيعي ولا تُعتبر بديلاً عن العلاج الطبي. يُرجى استشارة الطبيب قبل الاستخدام في حال الحمل، الرضاعة، تناول أدوية مزمنة، أو وجود حالة صحية. النتائج تختلف من شخص لآخر.",
     rights: "© 2025 عشبتي. جميع الحقوق محفوظة.",
+    note: "هذا الموقع تعريفي وغير مخصص للبيع المباشر حالياً.",
   };
   const en = {
-    tagline: "Your health is your world",
-    desc: "Natural tea blends with the wisdom of heritage and the precision of science.",
-    nav: "Quick Links",
+    tagline: "Your health, your world",
+    desc: "A project dedicated to developing natural herbal blends — heritage wisdom meets modern science.",
+    nav: "Explore",
     navItems: [
-      { l: "Home", h: "#home" },
-      { l: "Shop", h: "#products" },
       { l: "About", h: "#about" },
-      { l: "Contact", h: "#contact" },
+      { l: "Our Blends", h: "#blends" },
+      { l: "Herbs", h: "#herbs" },
+      { l: "Vision", h: "#vision" },
     ],
     contact: "Contact",
-    disc: "Health Disclaimer",
-    discBody:
-      "Oshbati products are natural dietary supplements and are not a substitute for medical treatment. Please consult your physician before use if pregnant, nursing, on chronic medication, or with any medical condition. Results may vary.",
     rights: "© 2025 Oshbati. All rights reserved.",
+    note: "This is an informational website — not a direct sales channel for now.",
   };
   const t = lang === "ar" ? ar : en;
 
   return (
     <footer id="contact" className="bg-foreground text-background pt-20 pb-8">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-4 gap-10">
-          <div className="md:col-span-1">
+        <div className="grid md:grid-cols-3 gap-10">
+          <div>
             <img src={logo} alt="Oshbati" className="h-16 w-auto bg-background/95 rounded-xl p-2" />
             <p className="mt-4 text-accent font-bold text-lg">{t.tagline}</p>
-            <p className="mt-2 text-background/65 text-sm leading-relaxed">{t.desc}</p>
+            <p className="mt-2 text-background/65 text-sm leading-relaxed max-w-sm">{t.desc}</p>
           </div>
 
           <div>
@@ -61,16 +57,22 @@ export function Footer({ lang }: { lang: "ar" | "en" }) {
 
           <div>
             <h4 className="font-bold mb-4">{t.contact}</h4>
-            <ul className="space-y-2 text-background/70 text-sm">
-              <li>hello@oshbati.com</li>
-              <li>+966 50 000 0000</li>
-              <li>{lang === "ar" ? "الرياض، السعودية" : "Riyadh, KSA"}</li>
+            <ul className="space-y-3 text-background/70 text-sm">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-accent" />
+                hello@oshbati.com
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent" />
+                {lang === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia"}
+              </li>
             </ul>
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3 mt-5">
               {[Instagram, Facebook, Twitter].map((Ic, i) => (
                 <a
                   key={i}
                   href="#"
+                  aria-label="social"
                   className="h-9 w-9 grid place-items-center rounded-full bg-background/10 hover:bg-accent hover:text-accent-foreground transition-smooth"
                 >
                   <Ic className="h-4 w-4" />
@@ -78,20 +80,13 @@ export function Footer({ lang }: { lang: "ar" | "en" }) {
               ))}
             </div>
           </div>
-
-          <div className="md:col-span-1">
-            <div className="rounded-2xl border border-accent/30 bg-accent/5 p-5">
-              <div className="flex items-center gap-2 text-accent font-bold">
-                <AlertTriangle className="h-4 w-4" />
-                <span className="text-sm">{t.disc}</span>
-              </div>
-              <p className="mt-2 text-xs text-background/70 leading-relaxed">{t.discBody}</p>
-            </div>
-          </div>
         </div>
 
         <div className="gold-divider mt-12 opacity-40" />
-        <p className="text-center text-xs text-background/55 mt-6">{t.rights}</p>
+        <div className="mt-6 flex flex-col md:flex-row md:justify-between gap-2 text-xs text-background/55 text-center md:text-start">
+          <p>{t.rights}</p>
+          <p>{t.note}</p>
+        </div>
       </div>
     </footer>
   );
