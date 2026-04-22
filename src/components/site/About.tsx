@@ -1,24 +1,30 @@
 import aboutImg from "@/assets/about-tea.jpg";
-import { Microscope, Sprout } from "lucide-react";
+import { Microscope, Sprout, ShieldCheck, Sparkles } from "lucide-react";
 
 export function About({ lang }: { lang: "ar" | "en" }) {
   const ar = {
     eyebrow: "من نحن",
     title: "حيث يلتقي الموروث بالعلم",
-    p: "في عشبتي، نعيد إحياء وصفات الطب التقليدي ونصقلها بمعايير علمية دقيقة. كل خلطة تمر بمراحل اختيار، تنقية، وفحص مخبري لضمان نقائها وفعاليتها — لتصلك بكيس شاي جاهز بذوق يحاكي الأصالة وسهولة الحاضر.",
-    a: "موروث أصيل",
-    aDesc: "وصفات منتقاة من حكمة الأجداد",
-    b: "علم حديث",
-    bDesc: "فحوص مخبرية على كل دفعة",
+    p1: "عشبتي مشروع متخصص في تطوير خلطات عشبية طبيعية، يتم اختيار مكوناتها بعناية استنادًا إلى المعرفة العشبية التراثية المدعومة بما توفر من دراسات علمية حديثة، بهدف دعم نمط حياة صحي بطريقة عملية وسهلة التطبيق.",
+    p2: "نقوم بتبسيط استخدام الأعشاب من خلال إعداد خلطات متوازنة، وتقديمها في أكياس صحية جاهزة للاستخدام (Tea Bags)، لتندمج بسهولة في روتينك اليومي دون تعقيد.",
+    cards: [
+      { icon: Sprout, t: "موروث أصيل", d: "وصفات منتقاة من معرفة عشبية متراكمة عبر الأجيال" },
+      { icon: Microscope, t: "دعم علمي", d: "استئناس بالدراسات الحديثة في اختيار المكونات" },
+      { icon: Sparkles, t: "بساطة في الاستخدام", d: "أكياس شاي جاهزة تندمج في روتينك بسهولة" },
+      { icon: ShieldCheck, t: "شفافية والتزام", d: "وضوح في طبيعة المنتجات وحدود استخدامها" },
+    ],
   };
   const en = {
     eyebrow: "About Us",
     title: "Where heritage meets science",
-    p: "At Oshbati we revive traditional remedies and refine them with rigorous standards. Every blend is sourced, purified, and lab-tested for purity and potency — delivered in a ready-to-use tea bag that honors the past with the convenience of today.",
-    a: "Authentic Heritage",
-    aDesc: "Recipes inspired by ancestral wisdom",
-    b: "Modern Science",
-    bDesc: "Lab-tested every single batch",
+    p1: "Oshbati is a project dedicated to developing natural herbal blends, with ingredients carefully selected based on traditional herbal knowledge supported by available modern research — to nurture a healthy lifestyle in a practical, easy way.",
+    p2: "We simplify the use of herbs by crafting balanced blends and presenting them in ready-to-use tea bags, so they fit seamlessly into your daily routine.",
+    cards: [
+      { icon: Sprout, t: "Authentic Heritage", d: "Recipes inspired by generations of herbal wisdom" },
+      { icon: Microscope, t: "Scientific Support", d: "Modern research informs our ingredient choices" },
+      { icon: Sparkles, t: "Simple to Use", d: "Ready tea bags that fit easily into your routine" },
+      { icon: ShieldCheck, t: "Transparency", d: "Clarity on what our products are — and aren't" },
+    ],
   };
   const t = lang === "ar" ? ar : en;
 
@@ -45,23 +51,19 @@ export function About({ lang }: { lang: "ar" | "en" }) {
             {t.title}
           </h2>
           <div className="gold-divider w-24 my-6 rounded-full" />
-          <p className="text-foreground/75 text-lg leading-relaxed">{t.p}</p>
+          <p className="text-foreground/75 text-base md:text-lg leading-relaxed">{t.p1}</p>
+          <p className="mt-4 text-foreground/70 leading-relaxed">{t.p2}</p>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-5">
-            <div className="p-5 rounded-2xl bg-background border border-border/60 shadow-card">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 grid place-items-center mb-3">
-                <Sprout className="h-5 w-5 text-primary" />
+          <div className="mt-10 grid sm:grid-cols-2 gap-4">
+            {t.cards.map(({ icon: Icon, t: title, d }) => (
+              <div key={title} className="p-5 rounded-2xl bg-background border border-border/60 shadow-card">
+                <div className="h-10 w-10 rounded-xl bg-primary/10 grid place-items-center mb-3">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="font-bold text-foreground">{title}</h3>
+                <p className="text-sm text-foreground/65 mt-1 leading-relaxed">{d}</p>
               </div>
-              <h3 className="font-bold text-foreground">{t.a}</h3>
-              <p className="text-sm text-foreground/65 mt-1">{t.aDesc}</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-background border border-border/60 shadow-card">
-              <div className="h-10 w-10 rounded-xl bg-accent/15 grid place-items-center mb-3">
-                <Microscope className="h-5 w-5 text-accent" />
-              </div>
-              <h3 className="font-bold text-foreground">{t.b}</h3>
-              <p className="text-sm text-foreground/65 mt-1">{t.bDesc}</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>

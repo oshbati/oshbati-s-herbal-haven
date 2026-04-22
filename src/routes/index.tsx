@@ -4,8 +4,10 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { Categories } from "@/components/site/Categories";
 import { About } from "@/components/site/About";
-import { Products } from "@/components/site/Products";
+import { Vision } from "@/components/site/Vision";
+import { Herbs } from "@/components/site/Herbs";
 import { Benefits } from "@/components/site/Benefits";
+import { Disclaimer } from "@/components/site/Disclaimer";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -16,12 +18,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "عشبتي: خلطات شاي طبيعية مدروسة لدعم توازنك الصحي. أكياس جاهزة، 100% طبيعية، مفحوصة مخبرياً.",
+          "عشبتي مشروع متخصص في تطوير خلطات عشبية طبيعية تجمع بين حكمة الموروث ودقة العلم، لدعم نمط حياة صحي بطريقة عملية وسهلة.",
       },
       { property: "og:title", content: "عشبتي | Oshbati — صحتك بالدنيا" },
       {
         property: "og:description",
-        content: "خلطات أعشاب طبيعية في أكياس شاي جاهزة. حكمة الموروث ودقة العلم.",
+        content: "خلطات أعشاب طبيعية في أكياس جاهزة. تعريف بمشروع عشبتي ورؤيته ورسالته.",
       },
     ],
   }),
@@ -43,10 +45,12 @@ function Index() {
       <Header lang={lang} onToggleLang={() => setLang((l) => (l === "ar" ? "en" : "ar"))} />
       <main>
         <Hero lang={lang} />
-        <Categories lang={lang} />
         <About lang={lang} />
-        <Products lang={lang} />
+        <Categories lang={lang} />
         <Benefits lang={lang} />
+        <Herbs lang={lang} />
+        <Vision lang={lang} />
+        <Disclaimer lang={lang} />
       </main>
       <Footer lang={lang} />
     </div>

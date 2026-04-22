@@ -1,19 +1,19 @@
-import { Leaf, FlaskConical, Coffee, Truck } from "lucide-react";
+import { Leaf, FlaskConical, Coffee, ShieldCheck } from "lucide-react";
 
 export function Benefits({ lang }: { lang: "ar" | "en" }) {
   const items =
     lang === "ar"
       ? [
-          { icon: Leaf, t: "100% طبيعي", d: "بدون مواد حافظة" },
-          { icon: FlaskConical, t: "مفحوص مخبرياً", d: "نقاء وفعالية مضمونة" },
-          { icon: Coffee, t: "أكياس جاهزة", d: "سهل التحضير في دقائق" },
-          { icon: Truck, t: "توصيل سريع", d: "خلال 24-72 ساعة" },
+          { icon: Leaf, t: "100% طبيعي", d: "مكونات عشبية منتقاة بعناية" },
+          { icon: FlaskConical, t: "مدعوم بالعلم", d: "اختيار مبني على دراسات حديثة" },
+          { icon: Coffee, t: "أكياس جاهزة", d: "سهل الاستخدام في روتينك اليومي" },
+          { icon: ShieldCheck, t: "شفافية كاملة", d: "وضوح في حدود استخدام كل خلطة" },
         ]
       : [
-          { icon: Leaf, t: "100% Natural", d: "No preservatives" },
-          { icon: FlaskConical, t: "Lab Tested", d: "Purity & potency verified" },
-          { icon: Coffee, t: "Ready Tea Bags", d: "Brew in minutes" },
-          { icon: Truck, t: "Fast Delivery", d: "Within 24-72 hours" },
+          { icon: Leaf, t: "100% Natural", d: "Carefully selected herbal ingredients" },
+          { icon: FlaskConical, t: "Science-Informed", d: "Choices guided by modern research" },
+          { icon: Coffee, t: "Ready Tea Bags", d: "Easy to fit into your daily routine" },
+          { icon: ShieldCheck, t: "Full Transparency", d: "Clear about each blend's proper use" },
         ];
   return (
     <section className="py-16 bg-primary text-primary-foreground">
@@ -30,7 +30,7 @@ export function Benefits({ lang }: { lang: "ar" | "en" }) {
               </div>
               <div>
                 <h3 className="font-bold text-lg">{t}</h3>
-                <p className="text-sm text-primary-foreground/70 mt-0.5">{d}</p>
+                <p className="text-sm text-primary-foreground/70 mt-0.5 leading-relaxed">{d}</p>
               </div>
             </div>
           ))}
