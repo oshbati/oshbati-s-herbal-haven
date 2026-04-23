@@ -25,6 +25,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "خلطات أعشاب طبيعية في أكياس جاهزة. تعريف بمشروع عشبتي ورؤيته ورسالته.",
       },
+      { property: "og:image", content: "/oshbati-logo.png" },
+      { name: "twitter:image", content: "/oshbati-logo.png" },
     ],
   }),
   component: Index,
