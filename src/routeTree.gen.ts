@@ -9,14 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as QaranfelRouteImport } from './routes/qaranfel'
+import { Route as Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport } from './routes/القرنفل'
 import { Route as IndexRouteImport } from './routes/index'
 
-const QaranfelRoute = QaranfelRouteImport.update({
-  id: '/qaranfel',
-  path: '/qaranfel',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route =
+  Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport.update({
+    id: '/القرنفل',
+    path: '/القرنفل',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,37 +26,37 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/qaranfel': typeof QaranfelRoute
+  '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/qaranfel': typeof QaranfelRoute
+  '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/qaranfel': typeof QaranfelRoute
+  '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/qaranfel'
+  fullPaths: '/' | '/القرنفل'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/qaranfel'
-  id: '__root__' | '/' | '/qaranfel'
+  to: '/' | '/القرنفل'
+  id: '__root__' | '/' | '/القرنفل'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  QaranfelRoute: typeof QaranfelRoute
+  Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route: typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/qaranfel': {
-      id: '/qaranfel'
-      path: '/qaranfel'
-      fullPath: '/qaranfel'
-      preLoaderRoute: typeof QaranfelRouteImport
+    '/القرنفل': {
+      id: '/القرنفل'
+      path: '/القرنفل'
+      fullPath: '/القرنفل'
+      preLoaderRoute: typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +71,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  QaranfelRoute: QaranfelRoute,
+  Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route:
+    Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

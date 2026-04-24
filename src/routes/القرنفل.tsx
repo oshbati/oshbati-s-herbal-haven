@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/site/Header";
 import cloveHero from "@/assets/clove-hero.jpeg";
 
-export const Route = createFileRoute("/qaranfel")({
+export const Route = createFileRoute("/القرنفل")({
   head: () => ({
     meta: [
       { title: "القرنفل | عشبتي — كنز طبيعي لصحة أفضل" },
