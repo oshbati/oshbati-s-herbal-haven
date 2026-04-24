@@ -33,11 +33,9 @@ export const Route = createRootRoute({
       { name: "description", content: "Lovable Generated Project" },
       { name: "author", content: "Lovable" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/oshbati-logo.png" },
-      { property: "og:image:width", content: "1920" },
-      { property: "og:image:height", content: "1280" },
+      { property: "og:image", content: "/oshbati-share.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/oshbati-logo.png" },
+      { name: "twitter:image", content: "/oshbati-share.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
