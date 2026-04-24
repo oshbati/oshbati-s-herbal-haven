@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QaranfelRouteImport } from './routes/qaranfel'
 import { Route as IndexRouteImport } from './routes/index'
 
+const QaranfelRoute = QaranfelRouteImport.update({
+  id: '/qaranfel',
+  path: '/qaranfel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/qaranfel': typeof QaranfelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/qaranfel': typeof QaranfelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/qaranfel': typeof QaranfelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/qaranfel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/qaranfel'
+  id: '__root__' | '/' | '/qaranfel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  QaranfelRoute: typeof QaranfelRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/qaranfel': {
+      id: '/qaranfel'
+      path: '/qaranfel'
+      fullPath: '/qaranfel'
+      preLoaderRoute: typeof QaranfelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  QaranfelRoute: QaranfelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
