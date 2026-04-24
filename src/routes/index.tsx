@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Header } from "@/components/site/Header";
-import comingSoon from "@/assets/coming-soon.jpg";
+import comingSoonMobile from "@/assets/coming-soon-mobile.webp";
+import comingSoonDesktop from "@/assets/coming-soon-desktop.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,22 +26,23 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [lang, setLang] = useState<"ar" | "en">("ar");
-
   useEffect(() => {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  }, [lang]);
+    document.documentElement.lang = "ar";
+    document.documentElement.dir = "rtl";
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      <Header lang={lang} onToggleLang={() => setLang((l) => (l === "ar" ? "en" : "ar"))} />
+      <Header />
       <main className="pt-20 min-h-screen flex items-center justify-center px-4 py-8">
-        <img
-          src={comingSoon}
-          alt="عشبتي — الموقع تحت الإنشاء"
-          className="max-w-full max-h-[calc(100vh-7rem)] w-auto h-auto object-contain rounded-2xl shadow-elegant"
-        />
+        <picture>
+          <source media="(min-width: 768px)" srcSet={comingSoonDesktop} />
+          <img
+            src={comingSoonMobile}
+            alt="عشبتي — الموقع تحت الإنشاء"
+            className="max-w-full max-h-[calc(100vh-7rem)] w-auto h-auto object-contain rounded-2xl shadow-elegant"
+          />
+        </picture>
       </main>
     </div>
   );

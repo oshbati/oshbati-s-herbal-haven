@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
-import { Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/oshbati-logo.png";
 
-export function Header({
-  lang,
-  onToggleLang,
-}: {
-  lang: "ar" | "en";
-  onToggleLang: () => void;
-}) {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -31,15 +23,9 @@ export function Header({
           <img src={logo} alt="عشبتي Oshbati" className="h-12 w-auto" />
         </a>
 
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onToggleLang}
-          className="gap-1.5 text-foreground/80 hover:text-primary"
-        >
-          <Globe className="h-4 w-4" />
-          <span className="text-xs font-semibold">{lang === "ar" ? "EN" : "AR"}</span>
-        </Button>
+        <span className="text-sm md:text-base font-semibold text-primary tracking-wide">
+          قريباً
+        </span>
       </div>
     </header>
   );
