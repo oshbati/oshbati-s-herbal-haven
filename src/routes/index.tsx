@@ -1,15 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
-import { Categories } from "@/components/site/Categories";
-import { About } from "@/components/site/About";
-import { Vision } from "@/components/site/Vision";
-import { Herbs } from "@/components/site/Herbs";
-import { Benefits } from "@/components/site/Benefits";
-import { Disclaimer } from "@/components/site/Disclaimer";
-import { Footer } from "@/components/site/Footer";
-import { useReveal } from "@/hooks/use-reveal";
+import comingSoon from "@/assets/coming-soon.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,12 +10,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "عشبتي مشروع متخصص في تطوير خلطات عشبية طبيعية تجمع بين حكمة الموروث ودقة العلم، لدعم نمط حياة صحي بطريقة عملية وسهلة.",
+          "عشبتي — الموقع تحت الإنشاء. سيتم تدشينه فور انتهاء المادة العلمية والتسويقية.",
       },
       { property: "og:title", content: "عشبتي | Oshbati — صحتك بالدنيا" },
       {
         property: "og:description",
-        content: "خلطات أعشاب طبيعية في أكياس جاهزة. تعريف بمشروع عشبتي ورؤيته ورسالته.",
+        content: "الموقع تحت الإنشاء. شكراً لاهتمامك بعشبتي ومنتجاتها.",
       },
       { property: "og:image", content: "/oshbati-logo.png" },
       { name: "twitter:image", content: "/oshbati-logo.png" },
@@ -40,21 +32,16 @@ function Index() {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }, [lang]);
 
-  useReveal();
-
   return (
     <div className="min-h-screen bg-background">
       <Header lang={lang} onToggleLang={() => setLang((l) => (l === "ar" ? "en" : "ar"))} />
-      <main>
-        <Hero lang={lang} />
-        <About lang={lang} />
-        <Categories lang={lang} />
-        <Benefits lang={lang} />
-        <Herbs lang={lang} />
-        <Vision lang={lang} />
-        <Disclaimer lang={lang} />
+      <main className="pt-20 min-h-screen flex items-center justify-center px-4 py-8">
+        <img
+          src={comingSoon}
+          alt="عشبتي — الموقع تحت الإنشاء"
+          className="max-w-full max-h-[calc(100vh-7rem)] w-auto h-auto object-contain rounded-2xl shadow-elegant"
+        />
       </main>
-      <Footer lang={lang} />
     </div>
   );
 }
