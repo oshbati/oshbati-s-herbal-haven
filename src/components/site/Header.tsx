@@ -25,13 +25,14 @@ export function Header() {
 
   return (
     <header
+      dir="rtl"
       className={`fixed top-0 inset-x-0 z-50 transition-smooth ${
         scrolled || open
           ? "bg-background/85 backdrop-blur-md shadow-soft border-b border-border/60"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 md:px-8 flex flex-row-reverse items-center justify-between h-20">
         <a href="/" className="flex items-center gap-3">
           <img src={logo} alt="عشبتي Oshbati" className="h-12 w-auto" />
         </a>
