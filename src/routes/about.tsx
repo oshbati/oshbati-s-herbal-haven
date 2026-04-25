@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Header } from "@/components/site/Header";
-import aboutImg from "@/assets/about-tea.jpg";
+import aboutImg from "@/assets/about-hero.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -46,12 +46,11 @@ function AboutPage() {
           </header>
 
           <figure className="relative mb-10">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/20 to-primary/10 -z-10 blur-2xl" />
             <img
               src={aboutImg}
-              alt="عشبتي — خلطات عشبية طبيعية"
+              alt="عشبتي — صحتك بالدنيا"
               loading="lazy"
-              className="rounded-[2rem] shadow-elegant w-full object-cover aspect-[16/10]"
+              className="w-full h-auto object-contain mx-auto max-w-2xl"
             />
           </figure>
 
