@@ -62,6 +62,9 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
             {t.title}
           </h2>
           <div className="gold-divider w-24 mx-auto mt-6 rounded-full" />
+          <p className="mt-6 text-foreground/75 leading-relaxed text-base md:text-lg">
+            {t.intro}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
