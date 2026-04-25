@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/oshbati-logo.png";
 
 const navItems = [
-  { label: "من نحن", href: "#about" },
+  { label: "من نحن", href: "/about" },
   { label: "الرسالة والأهداف والرؤية", href: "#vision" },
   { label: "الأعشاب الرئيسة", href: "#herbs" },
   { label: "خلطاتنا", href: "#blends" },
