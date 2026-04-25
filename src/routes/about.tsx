@@ -35,10 +35,7 @@ function AboutPage() {
       <main className="pt-28 pb-20">
         <article className="container mx-auto px-4 md:px-8 max-w-4xl">
           <header className="text-center mb-10">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
-              عشبتي
-            </span>
-            <h1 className="mt-3 text-4xl md:text-5xl font-extrabold text-primary leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary leading-tight">
               <span aria-hidden className="me-2">🌿</span>
               من نحن
             </h1>
