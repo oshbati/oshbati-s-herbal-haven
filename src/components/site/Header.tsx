@@ -4,12 +4,12 @@ import logo from "@/assets/oshbati-logo.png";
 
 const navItems = [
   { label: "من نحن", href: "/about" },
-  { label: "الرسالة والأهداف والرؤية", href: "#vision" },
-  { label: "الأعشاب الرئيسة", href: "#herbs" },
-  { label: "خلطاتنا", href: "#blends" },
-  { label: "خلطتك الخاصة", href: "#custom-blend" },
-  { label: "أسئلة متوقعة", href: "#faq" },
-  { label: "آلية الشراء والتوصيل", href: "#shipping" },
+  { label: "الرسالة والأهداف والرؤية", href: "/" },
+  { label: "الأعشاب الرئيسة", href: "/" },
+  { label: "خلطاتنا", href: "/" },
+  { label: "خلطتك الخاصة", href: "/" },
+  { label: "أسئلة متوقعة", href: "/" },
+  { label: "آلية الشراء والتوصيل", href: "/" },
 ];
 
 export function Header() {
