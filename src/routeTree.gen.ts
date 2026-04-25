@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport } from './routes/القرنفل'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route =
@@ -18,6 +19,11 @@ const Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route =
     path: '/القرنفل',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -26,27 +32,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/القرنفل'
+  fullPaths: '/' | '/about' | '/القرنفل'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/القرنفل'
-  id: '__root__' | '/' | '/القرنفل'
+  to: '/' | '/about' | '/القرنفل'
+  id: '__root__' | '/' | '/about' | '/القرنفل'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route: typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
 
@@ -57,6 +67,13 @@ declare module '@tanstack/react-router' {
       path: '/القرنفل'
       fullPath: '/القرنفل'
       preLoaderRoute: typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route:
     Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route,
 }
