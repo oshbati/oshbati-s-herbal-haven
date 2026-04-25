@@ -26,8 +26,10 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
     ],
   };
   const en = {
-    eyebrow: "Vision & Mission",
+    eyebrow: "Vision, Mission & Goals",
     title: "A healthy lifestyle, inspired by the earth",
+    intro:
+      "Dear visitor, learn about our mission, goals, and vision so your trust in us is built on a thoughtful, methodical, and scientific foundation.",
     vision: {
       t: "Vision",
       d: "For Oshbati to become the first choice in herbal remedies that have proven their value across the ages.",
