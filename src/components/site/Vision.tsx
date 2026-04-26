@@ -1,9 +1,10 @@
 import { Eye, Send, Target } from "lucide-react";
+import visionInfographic from "@/assets/vision-infographic.png";
 
 export function Vision({ lang }: { lang: "ar" | "en" }) {
   const ar = {
-    eyebrow: "رؤيتنا ورسالتنا وأهدافنا",
-    title: "نمط حياة صحي.. مستوحى من الأرض",
+    eyebrow: "",
+    title: "نحو نمط حياة صحي وطبيعي",
     intro:
       "أخي الزائر الكريم، تعرّف على رسالتنا وأهدافنا ورؤيتنا حتى تبني ثقتك بنا على أسس منهجية وعلميّة مدروسة.",
     vision: {
