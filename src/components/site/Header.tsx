@@ -4,7 +4,7 @@ import logo from "@/assets/oshbati-logo.png";
 
 const navItems = [
   { label: "من نحن", href: "/about" },
-  { label: "الرسالة والأهداف والرؤية", href: "/" },
+  { label: "الرسالة والأهداف والرؤية", href: "/vision" },
   { label: "الأعشاب الرئيسة", href: "/" },
   { label: "خلطاتنا", href: "/" },
   { label: "خلطتك الخاصة", href: "/" },
