@@ -105,6 +105,15 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
             ))}
           </ul>
         </div>
+
+        <div className="reveal mt-12 rounded-3xl overflow-hidden border border-border/60 shadow-card">
+          <img
+            src={visionInfographic}
+            alt={lang === "ar" ? "رسالة وأهداف ورؤية عشبتي" : "Oshbati mission, goals and vision"}
+            className="w-full h-auto block"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );
