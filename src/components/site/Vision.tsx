@@ -1,9 +1,10 @@
 import { Eye, Send, Target } from "lucide-react";
+import visionInfographic from "@/assets/vision-infographic.png";
 
 export function Vision({ lang }: { lang: "ar" | "en" }) {
   const ar = {
-    eyebrow: "رؤيتنا ورسالتنا وأهدافنا",
-    title: "نمط حياة صحي.. مستوحى من الأرض",
+    eyebrow: "",
+    title: "نحو نمط حياة صحي وطبيعي",
     intro:
       "أخي الزائر الكريم، تعرّف على رسالتنا وأهدافنا ورؤيتنا حتى تبني ثقتك بنا على أسس منهجية وعلميّة مدروسة.",
     vision: {
@@ -26,8 +27,8 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
     ],
   };
   const en = {
-    eyebrow: "Vision, Mission & Goals",
-    title: "A healthy lifestyle, inspired by the earth",
+    eyebrow: "",
+    title: "Toward a healthy, natural lifestyle",
     intro:
       "Dear visitor, learn about our mission, goals, and vision so your trust in us is built on a thoughtful, methodical, and scientific foundation.",
     vision: {
@@ -55,9 +56,11 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
     <section id="vision" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 reveal">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
-            {t.eyebrow}
-          </span>
+          {t.eyebrow && (
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              {t.eyebrow}
+            </span>
+          )}
           <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-foreground text-balance">
             {t.title}
           </h2>
@@ -101,6 +104,15 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="reveal mt-12 rounded-3xl overflow-hidden border border-border/60 shadow-card">
+          <img
+            src={visionInfographic}
+            alt={lang === "ar" ? "رسالة وأهداف ورؤية عشبتي" : "Oshbati mission, goals and vision"}
+            className="w-full h-auto block"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
