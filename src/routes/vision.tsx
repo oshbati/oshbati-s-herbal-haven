@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Header } from "@/components/site/Header";
 import { Vision } from "@/components/site/Vision";
+import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/vision")({
   head: () => ({
@@ -28,6 +29,7 @@ function VisionPage() {
     document.documentElement.lang = "ar";
     document.documentElement.dir = "rtl";
   }, []);
+  useReveal();
 
   return (
     <div className="min-h-screen bg-background" dir="rtl">
