@@ -27,8 +27,8 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
     ],
   };
   const en = {
-    eyebrow: "Vision, Mission & Goals",
-    title: "A healthy lifestyle, inspired by the earth",
+    eyebrow: "",
+    title: "Toward a healthy, natural lifestyle",
     intro:
       "Dear visitor, learn about our mission, goals, and vision so your trust in us is built on a thoughtful, methodical, and scientific foundation.",
     vision: {
