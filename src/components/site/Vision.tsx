@@ -56,9 +56,11 @@ export function Vision({ lang }: { lang: "ar" | "en" }) {
     <section id="vision" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 reveal">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
-            {t.eyebrow}
-          </span>
+          {t.eyebrow && (
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              {t.eyebrow}
+            </span>
+          )}
           <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-foreground text-balance">
             {t.title}
           </h2>
