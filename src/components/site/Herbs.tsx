@@ -48,18 +48,28 @@ export function Herbs({ lang }: { lang: "ar" | "en" }) {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {list.map((h, i) => (
-            <div
+            <a
               key={h.n}
-              className="reveal group p-6 rounded-2xl bg-background border border-border/60 hover:border-accent/40 hover:shadow-card transition-smooth"
+              href="/herbs"
+              className="reveal group p-6 rounded-2xl bg-background border border-border/60 hover:border-accent/40 hover:shadow-card transition-smooth block text-right"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <div className="text-4xl mb-3 group-hover:scale-110 transition-smooth origin-start">
                 {h.e}
               </div>
-              <h3 className="font-bold text-primary">{h.n}</h3>
+              <h3 className="font-bold text-primary group-hover:text-accent transition-smooth">{h.n}</h3>
               <p className="mt-1.5 text-sm text-foreground/65 leading-relaxed">{h.d}</p>
-            </div>
+            </a>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href="/herbs"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-smooth"
+          >
+            {lang === "ar" ? "عرض جميع الأعشاب" : "View all herbs"} <span aria-hidden>←</span>
+          </a>
         </div>
       </div>
     </section>
