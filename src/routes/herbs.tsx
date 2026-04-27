@@ -87,7 +87,7 @@ function HerbsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang="ar" />
     </div>
   );
 }

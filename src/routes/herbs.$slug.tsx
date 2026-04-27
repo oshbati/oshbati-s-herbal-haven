@@ -40,7 +40,7 @@ export const Route = createFileRoute("/herbs/$slug")({
           العودة إلى قائمة الأعشاب
         </Link>
       </main>
-      <Footer />
+      <Footer lang="ar" />
     </div>
   ),
   component: HerbPage,
@@ -218,7 +218,7 @@ function HerbPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang="ar" />
     </div>
   );
 }
