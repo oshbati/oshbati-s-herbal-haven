@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport } from './routes/القرنفل'
 import { Route as VisionRouteImport } from './routes/vision'
+import { Route as HerbsRouteImport } from './routes/herbs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HerbsSlugRouteImport } from './routes/herbs.$slug'
 
 const Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route =
   Char1575Char1604Char1602Char1585Char1606Char1601Char1604RouteImport.update({
@@ -25,6 +27,11 @@ const VisionRoute = VisionRouteImport.update({
   path: '/vision',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HerbsRoute = HerbsRouteImport.update({
+  id: '/herbs',
+  path: '/herbs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -35,37 +42,56 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HerbsSlugRoute = HerbsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HerbsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/herbs': typeof HerbsRouteWithChildren
   '/vision': typeof VisionRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
+  '/herbs/$slug': typeof HerbsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/herbs': typeof HerbsRouteWithChildren
   '/vision': typeof VisionRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
+  '/herbs/$slug': typeof HerbsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/herbs': typeof HerbsRouteWithChildren
   '/vision': typeof VisionRoute
   '/القرنفل': typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
+  '/herbs/$slug': typeof HerbsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/vision' | '/القرنفل'
+  fullPaths: '/' | '/about' | '/herbs' | '/vision' | '/القرنفل' | '/herbs/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/vision' | '/القرنفل'
-  id: '__root__' | '/' | '/about' | '/vision' | '/القرنفل'
+  to: '/' | '/about' | '/herbs' | '/vision' | '/القرنفل' | '/herbs/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/herbs'
+    | '/vision'
+    | '/القرنفل'
+    | '/herbs/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  HerbsRoute: typeof HerbsRouteWithChildren
   VisionRoute: typeof VisionRoute
   Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route: typeof Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route
 }
@@ -86,6 +112,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VisionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herbs': {
+      id: '/herbs'
+      path: '/herbs'
+      fullPath: '/herbs'
+      preLoaderRoute: typeof HerbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -100,12 +133,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herbs/$slug': {
+      id: '/herbs/$slug'
+      path: '/$slug'
+      fullPath: '/herbs/$slug'
+      preLoaderRoute: typeof HerbsSlugRouteImport
+      parentRoute: typeof HerbsRoute
+    }
   }
 }
+
+interface HerbsRouteChildren {
+  HerbsSlugRoute: typeof HerbsSlugRoute
+}
+
+const HerbsRouteChildren: HerbsRouteChildren = {
+  HerbsSlugRoute: HerbsSlugRoute,
+}
+
+const HerbsRouteWithChildren = HerbsRoute._addFileChildren(HerbsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  HerbsRoute: HerbsRouteWithChildren,
   VisionRoute: VisionRoute,
   Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route:
     Char1575Char1604Char1602Char1585Char1606Char1601Char1604Route,
